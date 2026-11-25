@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 808 440" width="808" height="440" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif">
+  <desc>The computation L = (w · x + b − y)² drawn left to right as a graph. The parameters w = 1 and b = 0 and the data x = 2 and y = 5 feed a multiplication, an addition, a subtraction and a square, which produce p = 2, ŷ = 2, e = −3 and L = 9. Each tracked value also shows the gradient of L with respect to it: 1 at L, −6 at e, ŷ, p and b, and −12 at w; x and y are marked "no grad".</desc>
+  <defs>
+    <marker id="ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1D2733"/>
+    </marker>
+    <marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2E7DBA"/>
+    </marker>
+    <marker id="green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1D7449"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="808" height="440" fill="#ffffff"/>
+
+  <!-- Forward and backward direction arrows -->
+  <text x="410" y="30" text-anchor="middle" font-size="18" fill="#256A9F" font-weight="600">forward pass: compute and save values</text>
+  <line x1="190" y1="46" x2="630" y2="46" stroke="#2E7DBA" stroke-width="2.5" marker-end="url(#blue)"/>
+  <line x1="630" y1="398" x2="190" y2="398" stroke="#1D7449" stroke-width="2.5" marker-end="url(#green)"/>
+  <text x="410" y="426" text-anchor="middle" font-size="18" fill="#1D7449" font-weight="600">backward pass: multiply local derivatives</text>
+
+  <!-- Edges (drawn first so nodes sit on top) -->
+  <g stroke="#1D2733" stroke-width="1.8" fill="none" marker-end="url(#ink)">
+    <line x1="116" y1="150" x2="145" y2="214.5"/>
+    <line x1="116" y1="310" x2="145" y2="245.5"/>
+    <line x1="169" y1="230" x2="187" y2="230"/>
+    <line x1="284" y1="230" x2="302" y2="230"/>
+    <line x1="290" y1="147" x2="314.2" y2="214"/>
+    <line x1="337" y1="230" x2="355" y2="230"/>
+    <line x1="452" y1="230" x2="470" y2="230"/>
+    <line x1="470" y1="313" x2="484.4" y2="246.6"/>
+    <line x1="505" y1="230" x2="523" y2="230"/>
+    <line x1="620" y1="230" x2="638" y2="230"/>
+    <line x1="673" y1="230" x2="691" y2="230"/>
+  </g>
+
+  <!-- Leaf tensors: parameters (green) and data (gray) -->
+  <g font-size="20">
+    <rect x="20" y="113" width="96" height="54" rx="8" fill="#E7F0EC" stroke="#1D7449" stroke-width="2"/>
+    <text x="68" y="136" text-anchor="middle" fill="#1D2733"><tspan font-style="italic">w</tspan> = 1</text>
+    <text x="68" y="159" text-anchor="middle" fill="#1D7449" font-size="17" font-weight="600">grad −12</text>
+
+    <rect x="20" y="293" width="96" height="54" rx="8" fill="#F2F5F8" stroke="#738396" stroke-width="2"/>
+    <text x="68" y="316" text-anchor="middle" fill="#1D2733"><tspan font-style="italic">x</tspan> = 2</text>
+    <text x="68" y="339" text-anchor="middle" fill="#738396" font-size="17">no grad</text>
+
+    <rect x="220" y="93" width="96" height="54" rx="8" fill="#E7F0EC" stroke="#1D7449" stroke-width="2"/>
+    <text x="268" y="116" text-anchor="middle" fill="#1D2733"><tspan font-style="italic">b</tspan> = 0</text>
+    <text x="268" y="139" text-anchor="middle" fill="#1D7449" font-size="17" font-weight="600">grad −6</text>
+
+    <rect x="392" y="313" width="96" height="54" rx="8" fill="#F2F5F8" stroke="#738396" stroke-width="2"/>
+    <text x="440" y="336" text-anchor="middle" fill="#1D2733"><tspan font-style="italic">y</tspan> = 5</text>
+    <text x="440" y="359" text-anchor="middle" fill="#738396" font-size="17">no grad</text>
+  </g>
+
+  <!-- Intermediate results (blue), each labeled with its grad_fn -->
+  <g font-size="20">
+    <rect x="188" y="203" width="96" height="54" rx="8" fill="#E8F1F8" stroke="#2E7DBA" stroke-width="2"/>
+    <text x="236" y="226" text-anchor="middle" fill="#1D2733"><tspan font-style="italic">p</tspan> = 2</text>
+    <text x="236" y="249" text-anchor="middle" fill="#1D7449" font-size="17" font-weight="600">grad −6</text>
+
+    <rect x="356" y="203" width="96" height="54" rx="8" fill="#E8F1F8" stroke="#2E7DBA" stroke-width="2"/>
+    <text x="404" y="226" text-anchor="middle" fill="#1D2733"><tspan font-style="italic">ŷ</tspan> = 2</text>
+    <text x="404" y="249" text-anchor="middle" fill="#1D7449" font-size="17" font-weight="600">grad −6</text>
+
+    <rect x="524" y="203" width="96" height="54" rx="8" fill="#E8F1F8" stroke="#2E7DBA" stroke-width="2"/>
+    <text x="572" y="226" text-anchor="middle" fill="#1D2733"><tspan font-style="italic">e</tspan> = −3</text>
+    <text x="572" y="249" text-anchor="middle" fill="#1D7449" font-size="17" font-weight="600">grad −6</text>
+
+    <rect x="692" y="203" width="96" height="54" rx="8" fill="#E8F1F8" stroke="#2E7DBA" stroke-width="2.5"/>
+    <text x="740" y="226" text-anchor="middle" fill="#1D2733" font-weight="600"><tspan font-style="italic">L</tspan> = 9</text>
+    <text x="740" y="249" text-anchor="middle" fill="#1D7449" font-size="17" font-weight="600">grad 1</text>
+  </g>
+  <g font-family="IBM Plex Mono, Menlo, Consolas, monospace" font-size="15" fill="#738396" text-anchor="middle">
+    <text x="236" y="193">MulBackward0</text>
+    <text x="404" y="193">AddBackward0</text>
+    <text x="572" y="193">SubBackward0</text>
+    <text x="740" y="193">PowBackward0</text>
+  </g>
+
+  <!-- Operations -->
+  <g fill="#ffffff" stroke="#1D2733" stroke-width="2">
+    <circle cx="152" cy="230" r="18"/>
+    <circle cx="320" cy="230" r="18"/>
+    <circle cx="488" cy="230" r="18"/>
+    <circle cx="656" cy="230" r="18"/>
+  </g>
+  <g font-family="IBM Plex Mono, Menlo, Consolas, monospace" font-size="20" fill="#1D2733" text-anchor="middle" font-weight="600">
+    <text x="152" y="236">*</text>
+    <text x="320" y="236">+</text>
+    <text x="488" y="236">-</text>
+    <text x="656" y="235" font-size="15">**2</text>
+  </g>
+</svg>
