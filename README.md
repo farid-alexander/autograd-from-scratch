@@ -2,7 +2,7 @@
 
 Call `loss.backward()` and PyTorch fills in `.grad` for every parameter. It can look like magic, but the mechanism is small. During the forward pass, each operation leaves a note saying how to pass a gradient back through it. `backward()` follows those notes from the loss back to the parameters.
 
-This article builds that mechanism in about 60 lines of plain Python and checks it against PyTorch. It is adapted from Chapter 6 of my book, *The Complete Guide to PyTorch 2: From Tensors to Compiled Deep Learning* ([Kindle](https://www.amazon.com/dp/B0HR97T3B2), [paperback](https://www.amazon.com/dp/B0HRP36BS4)).
+This article builds that mechanism in about 60 lines of plain Python and checks it against PyTorch. It is adapted from Chapter 6 of my book, *The Complete Guide to PyTorch 2: From Tensors to Compiled Deep Learning* ([Kindle](https://www.amazon.com/dp/B0HR97T3B2?maas=maas_adg_FF2CFA1CAA9C9A480A5C43C36AC2F16E_afap_abs&ref_=aa_maas&tag=maas), [paperback](https://www.amazon.com/dp/B0HRP36BS4?maas=maas_adg_F18C9CB4D7B524FC5D6A506C5C99FB91_afap_abs&ref_=aa_maas&tag=maas)).
 
 The code below runs top to bottom as one script. The engine needs only Python; the comparisons need PyTorch. [`small_autograd.py`](small_autograd.py) holds the engine on its own, and [`check_with_pytorch.py`](check_with_pytorch.py) compares it with PyTorch on more expressions.
 
@@ -275,8 +275,8 @@ When you need an operation PyTorch doesn't have, `torch.autograd.Function` lets 
 
 This article is adapted from Chapter 6, "Autograd: How PyTorch Computes Gradients", of *The Complete Guide to PyTorch 2: From Tensors to Compiled Deep Learning* by Farid Rahmani. The book starts from your first tensor and goes on to train image classifiers, build a small GPT-style language model from scratch, and speed training up with mixed precision, `torch.compile` and distributed training. It explains the math as you need it and has 237 exercises with answers; the ebook adds worked solutions.
 
-- Kindle edition: <https://www.amazon.com/dp/B0HR97T3B2>
-- Paperback: <https://www.amazon.com/dp/B0HRP36BS4>
+- [Kindle edition on Amazon](https://www.amazon.com/dp/B0HR97T3B2?maas=maas_adg_FF2CFA1CAA9C9A480A5C43C36AC2F16E_afap_abs&ref_=aa_maas&tag=maas)
+- [Paperback on Amazon](https://www.amazon.com/dp/B0HRP36BS4?maas=maas_adg_F18C9CB4D7B524FC5D6A506C5C99FB91_afap_abs&ref_=aa_maas&tag=maas)
 
 ## License
 
