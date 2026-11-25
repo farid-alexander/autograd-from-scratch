@@ -4,6 +4,8 @@ Call `loss.backward()` and PyTorch fills in `.grad` for every parameter. It can 
 
 This article builds that mechanism in about 60 lines of plain Python and checks it against PyTorch. It is adapted from Chapter 6 of my book, *The Complete Guide to PyTorch 2: From Tensors to Compiled Deep Learning* ([Kindle](https://www.amazon.com/dp/B0HR97T3B2?maas=maas_adg_FF2CFA1CAA9C9A480A5C43C36AC2F16E_afap_abs&ref_=aa_maas&tag=maas), [paperback](https://www.amazon.com/dp/B0HRP36BS4?maas=maas_adg_F18C9CB4D7B524FC5D6A506C5C99FB91_afap_abs&ref_=aa_maas&tag=maas)).
 
+If you know Andrej Karpathy's [micrograd](https://github.com/karpathy/micrograd), the idea is the same. The difference is that each piece here is named and shaped like PyTorch's own objects, so you can print PyTorch's graph and this one side by side, and every gradient is checked against PyTorch.
+
 The code below runs top to bottom as one script. The engine needs only Python; the comparisons need PyTorch. [`small_autograd.py`](small_autograd.py) holds the engine on its own, and [`check_with_pytorch.py`](check_with_pytorch.py) compares it with PyTorch on more expressions.
 
 ## One weight, one bias, one example
